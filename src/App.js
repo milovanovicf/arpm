@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Cointegration, Revenue, Modeling } from "./Pages/Cointegration";
+import { Reports, Reports1, Reports2, Reports3 } from "./Pages/Reports";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Sidebar />
+        <Switch>
+          <Route path="/cointegration" exact component={Cointegration} />
+          <Route path="/cointegration/modeling" exact component={Modeling} />
+          <Route path="/cointegration/revenue" exact component={Revenue} />
+          <Route path="/reports" exact component={Reports} />
+          <Route path="/reports/reports1" exact component={Reports1} />
+          <Route path="/reports/reports2" exact component={Reports2} />
+          <Route path="/reports/reports3" exact component={Reports3} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 
